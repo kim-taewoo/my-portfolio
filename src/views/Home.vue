@@ -45,12 +45,12 @@
               id="wheel"
               d="M123.359,89.775l0,52.843"
               style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 25px;"
-            ></path>
+            />
             <path
               id="mouse"
               d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z"
               style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 25px;"
-            ></path>
+            />
           </svg>
           <div style="text-align:center">
             <svg
@@ -66,7 +66,7 @@
               <g>
                 <path
                   d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"
-                ></path>
+                />
               </g>
             </svg>
           </div>
@@ -76,12 +76,12 @@
           <ul style="list-style-type:none;">
             <li class="mb-3">
               <a href="https://github.com/kim-taewoo?tab=repositories">
-                <img width="24" height="24" :src="require('@/assets/icons/github-logo.png')" alt>
+                <img width="24" height="24" :src="require('@/assets/icons/github-logo.png')" alt />
               </a>
             </li>
             <li>
               <a href="https://www.facebook.com/profile.php?id=100009269043820&ref=bookmarks">
-                <img width="24" height="24" :src="require('@/assets/icons/facebook-logo.png')" alt>
+                <img width="24" height="24" :src="require('@/assets/icons/facebook-logo.png')" alt />
               </a>
             </li>
           </ul>
@@ -107,11 +107,14 @@
               <p class="mb-1 subhead">Web, App Development</p>
               <p class="mb-2 pl-4">- HTML, CSS, Javascript(vue.js, node.js), Firebase, Flutter</p>
               <p class="mb-1 subhead">Data Analysis</p>
-              <p class="mb-3 pl-4">- Python(Pandas, Crawling), Data Visualization</p>
+              <p
+                class="mb-3 pl-4"
+              >- Python(Pandas, Crawling), Data Visualization(Matplotlib, D3.js), Excel(컴퓨터활용능력1급), Google Analytics Certificate</p>
             </v-flex>
             <v-flex class="introduction-1 mb-1" xs12 md3>Interested</v-flex>
             <v-flex class="introduction-2" xs12 md9>
-              <p class>Latest Technologies / Content Market / Consumer Behavior / UX, UI</p>
+              <p class="mb-1">Latest IT trends: Cloud Gaming, Deep Learning, Open Source</p>
+              <p>Interactive web content / Consumer Behavior / UX, UI</p>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -142,6 +145,13 @@
               <v-divider class="white"></v-divider>
             </v-flex>
           </v-layout>
+
+          <!-- <v-layout justify-center row wrap class="my-3">
+            <v-flex xs12 md9 class="px-2">
+              <FilterBar></FilterBar>
+            </v-flex>
+          </v-layout>-->
+
           <v-layout justify-center row wrap style="position:relative;">
             <v-flex xs12 md9 class="project-wrap px-2">
               <v-card data-scroll class="mb-5" v-for="(project, index) in projects" :key="index">
@@ -186,13 +196,29 @@
 
 <script>
 import ScrollOut from "scroll-out";
+import FilterBar from "../components/FilterBar.vue";
 export default {
   props: ["offsetTop", "viewportHeight"],
   name: "App",
-  components: {},
+  components: {
+    FilterBar
+  },
   data() {
     return {
       projects: [
+        {
+          title: "모바일 청첩장",
+          date: "2019. 07.",
+          thumbnail: "honeymini2.jpg",
+          text: "친누나 결혼식을 위한 모바일 청첩장을 제작, 배포했습니다.",
+          link: "https://honeymini.web.app",
+          labels: [
+            {
+              text: "DEV",
+              color: "#673ab7"
+            }
+          ]
+        },
         {
           title: "LG Chemical Data visualization",
           date: "2019. 06.",
@@ -227,6 +253,21 @@ export default {
           thumbnail: "visual.png",
           text:
             "데이터시각화 수업 과제로 아모레의 화장품 데이터를 시각화했고, 최고점수를 받았습니다. ",
+          labels: [
+            {
+              text: "DATA",
+              color: "#03a9f4"
+            }
+          ]
+        },
+        {
+          title: "학과 카페 익명게시판 분석",
+          date: "2019. 02.",
+          thumbnail: "cafeanalysis.png",
+          text:
+            "학과 카페의 익명게시판을 크롤링하고 분석해 학과의 연도별 관심사항을 변동을 분석했습니다.",
+          link:
+            "https://github.com/kim-taewoo/python-data-analysis/tree/master/GBA_cafe_analysis",
           labels: [
             {
               text: "DATA",
@@ -306,6 +347,10 @@ export default {
             {
               text: "DATA",
               color: "#03a9f4"
+            },
+            {
+              text: "BIZ",
+              color: "#f44336"
             }
           ]
         }
